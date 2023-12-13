@@ -11,7 +11,7 @@ export default function Header() {
           <Link href="">Menu</Link>
           <Link href="">About</Link>
           <Link href="">Contact</Link>
-          <Link href="" className="bg-primary text-white px-8 py-2 rounded-full">
+          <Link href="" className="bg-indigo-500 rounded-tl-full rounded-br-full text-white text-md text-center self-center px-4 py-2 m-2">
             Login
           </Link>
         </nav>
@@ -19,3 +19,5 @@ export default function Header() {
     </>
   )
 }
+
+// bg - primary text - white px - 8 py - 2 rounded - full
