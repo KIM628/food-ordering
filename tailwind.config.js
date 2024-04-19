@@ -7,10 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      borderRadius: {
+        'tl': '100px',
+      },
+      colors: {
+        primary:'#f13a01'
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'hero': "url('/public/assets/img/body.jpeg')",
+        'footer': "url('/img/footer-texture.png')",
       },
     },
   },
