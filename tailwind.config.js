@@ -11,10 +11,13 @@ module.exports = {
         'tl': '100px',
       },
       colors: {
-        primary:'#f13a01'
+        primary: '#f13a01',
+        biege: '#e0d8cc',
+        org:'#e99331',
       },
       backgroundImage: {
-        'hero': "url('/public/assets/img/body.jpeg')",
+        'body': "url('/assets/img/body0.jpeg')",
+        'hero': "url('/assets/img/hero2.jpg')",
         'footer': "url('/img/footer-texture.png')",
       },
     },
