@@ -4,7 +4,7 @@
 
 
 body {
-  @apply bg-body
+  @apply bg-body;
 }
 
 section.hero{
@@ -78,7 +78,7 @@ section.hero{
   transform: translateY(0);
 }
 
-/* login & reg button end */
+                        /* login & reg button end */
 
 /* logo start */
 .logo {
@@ -142,4 +142,4 @@ section.hero{
     color: #fff6a9;
   }
 }
-/* logo send */
+/* logo end */

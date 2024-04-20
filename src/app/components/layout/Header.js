@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="flex items-center justify-between pb-4">
       <Link
-        className="logo text-primary font-semibold text-2xl "
+        className="logo font-semibold text-2xl "
         href={'/'}>
         CoZzy Pizza
       </Link>
