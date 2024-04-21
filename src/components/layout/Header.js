@@ -29,7 +29,7 @@ export default function Header() {
           href={'/contact'}>
           Contact
         </Link>
-        <div className="flex items-center gap-4">
+        <nav className="flex items-center gap-4">
           <Link
             className="leaf text-biege px-8 py-2 rounded-bl-tl rounded-tr-tl"
             href={'/login'}>
@@ -40,7 +40,7 @@ export default function Header() {
             href={'/register'}>
             Register
           </Link>
-        </div>
+        </nav>
       </nav>
     </header>
   );

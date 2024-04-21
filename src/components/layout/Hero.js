@@ -2,7 +2,7 @@ import Right from "../icons/Right";
 
 export default function Hero() {
   return (
-    <section className="hero bg-hero bg-cover bg-center py-4 rounded-xl ">
+    <section className="hero bg-hero bg-cover bg-center py-4 rounded-xl mt-4">
       <div className=" text-biege py-8 px-4">
         <h1 className="text-4xl font-semibold leading-relaxed">
           Everything<br />
