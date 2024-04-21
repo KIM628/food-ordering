@@ -2,21 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+                /* change this css to tailwind config */
 
 body {
   @apply bg-body;
   min-height: 100vh;
 }
-footer{
-  margin-top: auto;
-}
+
 
 section.hero {
   @apply grid;
   grid-template-columns: .4fr .6fr;
 }
 
-/* login & register button start */
+input[type='email']:disabled
+input[type='password']:disabled
+input[type='text']:disabled{
+  @apply bg-brown
+}
+
+                        /* login & register button start */
 .leaf {
   background-image: linear-gradient(to right, rgb(164, 77, 1), rgb(233, 147, 49));
 }
@@ -82,9 +87,9 @@ section.hero {
   transform: translateY(0);
 }
 
-/* login & reg button end */
+                        /* login & reg button end */
 
-/* logo start */
+                            /* logo start */
 .logo {
   /*   text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
       0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092;
@@ -146,9 +151,10 @@ section.hero {
     color: #fff6a9;
   }
 }
+                            /* logo end */ 
 
-/* logo end */
 
+                            /* form start */
 .wrapper {
   position: relative;
   width: 400px;
@@ -158,10 +164,10 @@ section.hero {
   border-radius: 20px;
   backdrop-filter: blur(20px);
   box-shadow: 0 0 30px rbga(0, 0, 0, .5);
-  display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 .wrapper .form-box {
   width: 100%;
@@ -196,7 +202,7 @@ section.hero {
 
 .input-box input:focus~label,
 .input-box input:valid~label {
-  top: -5px;
+  top: -10px;
 }
 
 .input-box input {
@@ -245,3 +251,4 @@ section.hero {
   color: white;
   font-weight: 500;
 }
+                          /* form end */
