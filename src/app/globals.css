@@ -18,7 +18,7 @@ section.hero {
 input[type='email']:disabled
 input[type='password']:disabled
 input[type='text']:disabled{
-  @apply bg-brown
+  @apply bg-brown cursor-not-allowed
 }
 
                         /* login & register button start */
@@ -155,10 +155,10 @@ input[type='text']:disabled{
 
 
                             /* form start */
-.wrapper {
+.wrapper .login{
   position: relative;
   width: 400px;
-  height: 440px;
+  height: 470px;
   background: transparent;
   border: 2px solid rgba(250, 204, 21, 0.30);
   border-radius: 20px;
@@ -167,6 +167,7 @@ input[type='text']:disabled{
   justify-content: center;
   align-items: center;
 }
+
 
 
 .wrapper .form-box {
