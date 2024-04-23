@@ -7,9 +7,9 @@ import bcrypt from "bcrypt";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "@/libs/mongoConnect";
 
-const handler = NextAuth({
+export const authOptions = {
   secret: process.env.SECRET,
-  adapter:MongoDBAdapter(clientPromise),
+  adapter: MongoDBAdapter(clientPromise),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ClIENT_ID,
@@ -25,8 +25,8 @@ const handler = NextAuth({
       async authorize(credentials, req) {
         const email = credentials?.email;
         const password = credentials?.password;
-        
-        mongoose.connect(process.env.MONGO_URI)
+
+        mongoose.connect(process.env.MONGO_URI);
         const user = await User.findOne({ email });
         const passwordOk = user && bcrypt.compareSync(password, user.password);
 
@@ -38,6 +38,8 @@ const handler = NextAuth({
       }
     })
   ]
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export {handler as GET , handler as POST}

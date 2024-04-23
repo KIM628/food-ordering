@@ -11,7 +11,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginInProgress , setLoginInprogress] = useState(false);
-  const [error, setError] = useState(false);
+
 
   async function handleFormSubmit(ev) {
     ev.preventDefault();
@@ -68,13 +68,6 @@ export default function LoginPage() {
             <Image src={'/assets/img/google.png'} alt={"login"} width={24} height={24} />
             Login with Google
           </button>
-          <div className="text-brown text-center my-7">
-            Existing account ? {' '}
-            <Link className="underline text-org"
-              href={'/login'}>
-              Login here &raquo;
-            </Link>
-          </div>
         </form>
       </div>
     </section>

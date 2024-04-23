@@ -15,10 +15,15 @@ section.hero {
   grid-template-columns: .4fr .6fr;
 }
 
-input[type='email']:disabled
-input[type='password']:disabled
+.inputP{
+  @apply block w-full mb-2 rounded-xl;
+  @apply p-2 bg-gray-100 text-center;
+}
+
+input[type='email']:disabled,
+input[type='password']:disabled,
 input[type='text']:disabled{
-  @apply bg-brown cursor-not-allowed
+  @apply bg-gray-300 cursor-not-allowed;
 }
 
                         /* login & register button start */
@@ -253,3 +258,14 @@ input[type='text']:disabled{
   font-weight: 500;
 }
                           /* form end */
+
+.wrapper .UserP {
+  background: transparent;
+  border: 2px solid rgba(250, 204, 21, 0.30);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rbga(0, 0, 0, .5);
+  justify-content: center;
+  align-items: center;
+}
+
