@@ -15,15 +15,22 @@ section.hero {
   grid-template-columns: .4fr .6fr;
 }
 
-.inputP{
+
+input[type='email'],
+input[type='password'],
+input[type='tel'],
+input[type='text']{
   @apply block w-full mb-2 rounded-xl;
   @apply p-2 bg-gray-100 text-center;
 }
-
 input[type='email']:disabled,
 input[type='password']:disabled,
+input[type='tel']:disabled,
 input[type='text']:disabled{
   @apply bg-gray-300 cursor-not-allowed;
+}
+label{
+  @apply text-biege text-sm leading-tight;
 }
 
                         /* login & register button start */

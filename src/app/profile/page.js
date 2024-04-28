@@ -9,12 +9,24 @@ export default function ProfilePage() {
   const session = useSession();
   const [userName, setUserName] = useState('');
   const [image, setImage] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [postal, setPostal] = useState('');
   const { status } = session;
 
   useEffect(() => {
     if (status === 'authenticated') {
       setUserName(session.data.user.name);
       setImage(session.data.user.image);
+      fetch('/api/profile').then(response => {
+        response.json().then(data => {
+          setPhone(data.phone);
+          setAddress(data.address);
+          setCity(data.city);
+          setPostal(data.postal);
+        });
+      });
     }
   }, [session, status]);
 
@@ -24,7 +36,14 @@ export default function ProfilePage() {
       const response = await fetch('/api/profile', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: userName, image }),
+        body: JSON.stringify({
+          name: userName,
+          image,
+          address,
+          phone,
+          postal,
+          city
+        }),
       });
       if (response.ok) {
         resolve();
@@ -80,7 +99,7 @@ export default function ProfilePage() {
         <h1 className="text-center text-biege text-4xl my-4">
           User Profile
         </h1>
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2">
           <div>
             <div className="p-4 flex flex-col items-center">
               {image && (
@@ -96,64 +115,73 @@ export default function ProfilePage() {
               </label>
             </div>
           </div>
-          <form className="grow" onSubmit={handleProfileInfoUpdate}>
+          <form className="grow m-3" onSubmit={handleProfileInfoUpdate}>
 
-            <div>
+            <label>
+              Name
+            </label>
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={userName}
+              onChange={ev => setUserName(ev.target.value)}
+            />
+            <label>
+              Email
+            </label>
+            <input
+              type="email"
+              value={session.data.user.email}
+              disabled={true}
+            />
+            <label>
+              Address
+            </label>
+            <input
+              type="text"
+              placeholder="Address"
+              onChange={ev => setAddress(ev.target.value)}
+              value={address} />
+            <label>
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              onChange={ev => setPhone(ev.target.value)}
+              value={phone} />
 
-              <input
-                className="inputP
-                mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0
-                "
-                type="text"
-                placeholder="Full Name"
-                value={userName}
-                onChange={ev => setUserName(ev.target.value)}
-              />
-              <input
-                className="inputP "
-                type="email"
-                value={session.data.user.email}
-                disabled={true}
-              />
-              <input
-                className="inputP "
-                type="text"
-                placeholder="Address"
-                value={''} />
-              <input
-                className="inputP "
-                type="text"
-                placeholder="Phone Number"
-                value={''} />
-              <input
-                className="inputP "
-                type="text"
-                placeholder="City"
-                value={''} />
-              <input
-                className="inputP "
-                type="text"
-                placeholder="Postal Code"
-                value={''} />
+            <div className="flex gap-2">
+              <div>
+                <label>
+                  City
+                </label>
+                <input
+                  type="text"
+                  placeholder="City"
+                  onChange={ev => setCity(ev.target.value)}
+                  value={city} />
+              </div>
+              <div>
+                <label>
+                  Postal Code
+                </label>
+                <input
+                  type="text"
+                  placeholder="Postal Code"
+                  onChange={ev => setPostal(ev.target.value)}
+                  value={postal} />
+              </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
             <button
-              className="btn flex gap-4 justify-center py-2
-              hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105
-              "
+              className="bg-Lsalmon w-9/12 rounded-lg items-center
+            text-white font-medium text-base flex gap-4 justify-center py-2
+              hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
               type="submit">
               Save
             </button>
+
+
           </form>
         </div>
 

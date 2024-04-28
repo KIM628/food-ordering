@@ -14,7 +14,8 @@ module.exports = {
         primary: '#f13a01',
         biege: '#e0d8cc',
         org: '#e99331',
-        brown:'#A0736E'
+        brown: '#A0736E',
+        Lsalmon:'#ffa07a'
       },
       backgroundImage: {
         'body': "url('/assets/img/body0.jpeg')",
