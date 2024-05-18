@@ -6,11 +6,6 @@ const UserSchema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String },
   image: { type: String },
-  phone: { type: String },
-  city: { type: String },
-  address: { type: String },
-  postal: { type: String },
 }, { timestamps: true });
-
 
 export const User = models?.User || model('User', UserSchema);

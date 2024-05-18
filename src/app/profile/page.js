@@ -1,6 +1,8 @@
 'use client';
+import UserTabs from "@/components/UserTabs";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -13,6 +15,8 @@ export default function ProfilePage() {
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [postal, setPostal] = useState('');
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [profileFetched, setProfileFetched] = useState(false);
   const { status } = session;
 
   useEffect(() => {
@@ -25,6 +29,8 @@ export default function ProfilePage() {
           setAddress(data.address);
           setCity(data.city);
           setPostal(data.postal);
+          setIsAdmin(data.admin);
+          setProfileFetched(true);
         });
       });
     }
@@ -83,8 +89,8 @@ export default function ProfilePage() {
       });
     }
   }
-
-  if (status === 'loading') {
+  
+  if (status === 'loading' || !profileFetched ) {
     return 'Loading...';
   }
 
@@ -95,10 +101,8 @@ export default function ProfilePage() {
 
   return (
     <section className=" wrapper mt-4">
+      <UserTabs isAdmin={isAdmin}  />
       <div className="UserP max-w-md mx-auto">
-        <h1 className="text-center text-biege text-4xl my-4">
-          User Profile
-        </h1>
         <div className="flex gap-2">
           <div>
             <div className="p-4 flex flex-col items-center">
@@ -174,9 +178,8 @@ export default function ProfilePage() {
               </div>
             </div>
             <button
-              className="bg-Lsalmon w-9/12 rounded-lg items-center
-            text-white font-medium text-base flex gap-4 justify-center py-2
-              hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
+              className="w-9/12 rounded-lg items-center font-medium text-base flex gap-4 justify-center py-2
+              hover:shadow-inner focus:outline-none transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105"
               type="submit">
               Save
             </button>
