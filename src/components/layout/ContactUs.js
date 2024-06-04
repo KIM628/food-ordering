@@ -1,4 +1,4 @@
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "./SectionHeaders";
 
 export default function ContactUs() {
   return (
@@ -15,5 +15,5 @@ export default function ContactUs() {
         </a>
       </div>
     </section>
-  )
+  );
 }
