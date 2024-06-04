@@ -10,8 +10,8 @@ export default function ContactUs() {
       <div className="mt-8">
         <a
           className="text-4xl text-biege underline"
-          href="tel:+23484653467">
-          +234 846 53467
+          href="tel:+123456789">
+          +123456789
         </a>
       </div>
     </section>
